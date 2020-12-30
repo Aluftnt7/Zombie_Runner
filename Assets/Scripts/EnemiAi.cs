@@ -35,8 +35,11 @@ public class EnemiAi : MonoBehaviour
         {
             isProvoked = true;
         }
+    }
 
-
+    public void OnDamageTaken()
+    {
+        isProvoked = true;
     }
 
     private void EngageTarget()
@@ -52,8 +55,6 @@ public class EnemiAi : MonoBehaviour
         {
             AttackTarget();
         }
-       
-
     }
 
     private void AttackTarget()

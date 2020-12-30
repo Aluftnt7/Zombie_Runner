@@ -8,7 +8,6 @@ public class PlayerHealth : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -22,7 +21,7 @@ public class PlayerHealth : MonoBehaviour
         playerHelath -= damage;
         if(playerHelath <= 0)
         {
-            print("you died tate");
+            GetComponent<DeathHandler>().HandleDeath(); ;
         }
     }
 }
