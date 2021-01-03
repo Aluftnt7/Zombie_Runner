@@ -9,8 +9,6 @@ public class WeponZoom : MonoBehaviour
     [SerializeField] Camera fpsCamera;
     [SerializeField] float zoomOutFactor = 60f; 
     [SerializeField] float zoomInFactor = 30f;
-    [SerializeField] float zoomSpeed = 1f; 
-
 
 
     [SerializeField] float zoomOutSensitivity = 2f;
@@ -36,14 +34,19 @@ public class WeponZoom : MonoBehaviour
         Zoom();
     }
 
+    private void OnDisable()
+    {
+        //ZoomOut();
+    }
+
     private void Zoom()
     {
-        if (Input.GetButton("Zoom"))
+        if (Input.GetMouseButton(1))
         {
             ZoomIn();
             print("zoom in");
         }
-        else
+        if (Input.GetMouseButtonUp(1))
         {
             ZoomOut();
             print("zoom out");
@@ -53,11 +56,8 @@ public class WeponZoom : MonoBehaviour
     private void ZoomIn()
     {
         //fpsCamera.fieldOfView = zoomInFactor;
-      
        
-           fpsCamera.fieldOfView = Mathf.Lerp(zoomOutFactor, zoomInFactor, 0.8f);
-
-       
+        fpsCamera.fieldOfView = Mathf.Lerp(fpsCamera.fieldOfView, zoomInFactor, 0.08f);
 
         fpsController.mouseLook.XSensitivity = zoomInSensitivity;
         fpsController.mouseLook.YSensitivity = zoomInSensitivity;
@@ -72,7 +72,7 @@ public class WeponZoom : MonoBehaviour
     {
 
        // fpsCamera.fieldOfView = zoomOutFactor;
-        fpsCamera.fieldOfView = Mathf.Lerp(zoomInFactor, zoomOutFactor, 0.8f);
+        fpsCamera.fieldOfView = Mathf.Lerp(fpsCamera.fieldOfView, zoomOutFactor, 0.5f);
 
         fpsController.mouseLook.XSensitivity = zoomOutSensitivity;
         fpsController.mouseLook.YSensitivity = zoomOutSensitivity;
@@ -82,8 +82,4 @@ public class WeponZoom : MonoBehaviour
         fpsController.movementSettings.BackwardSpeed = zoomedOutBackwardSpeed;
         fpsController.movementSettings.StrafeSpeed = zoomedOutStrafeSpeed;
     }
-
-    
-
-  
 }

@@ -260,7 +260,6 @@ MonoBehaviour:
   range: 100
   damage: 30
   flashEfx: {fileID: 198264366544949716}
-  ParticleParenTransform: {fileID: 0}
   hitEffect: {fileID: 514282791178177927, guid: 87e1bc507b0cda54598156a2f42ba995,
     type: 3}
   ammoSlot: {fileID: 0}
@@ -278,12 +277,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e558c4985628b1847884d550a7565742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fpsCmaera: {fileID: 0}
-  zoomedOutFieldOfView: 0
-  zoomedFieldOfView: 0
-  zoomOutMouseSensetivity: 2
-  zoomInMouseSensetivity: 1.5
-  smooth: 0
+  fpsCamera: {fileID: 0}
+  zoomOutFactor: 60
+  zoomInFactor: 30
+  zoomOutSensitivity: 2
+  zoomInSensitivity: 1
+  zoomedOutForwardSpeed: 8
+  zoomedOutBackwardSpeed: 4
+  zoomedOutStrafeSpeed: 4
+  zoomedInForwardSpeed: 4
+  zoomedInBackwardSpeed: 2
+  zoomedInStrafeSpeed: 2
+  zoomedOutTransform: {fileID: 0}
+  zoomedInTransform: {fileID: 0}
   fpsController: {fileID: 0}
 --- !u!1 &1076171495625318
 GameObject:

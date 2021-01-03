@@ -9,7 +9,6 @@ public class Weapon : MonoBehaviour
     [SerializeField] float range = 100f;
     [SerializeField] float damage = 30f;
     [SerializeField] ParticleSystem flashEfx;
-    [SerializeField] Transform ParticleParenTransform;
     [SerializeField] GameObject hitEffect;
     [SerializeField] Ammo ammoSlot;
     [SerializeField] AmmoType ammoType;
@@ -53,7 +52,7 @@ public class Weapon : MonoBehaviour
         HandleVfx();
         ProcessRaycast();
         ammoSlot.ReduceCurrentAmmo(ammoType);
-        animator.SetInteger("Fire", 1);
+        animator.SetInteger("Fire", 2);
         yield return new WaitForSeconds(timeBetweenShots);
         canShoot = true;
     }
@@ -95,7 +94,7 @@ public class Weapon : MonoBehaviour
     private void HandleVfx()
     {
         flashEfx.Play();
-       
+        print("vfx play bitchhh");
     }
 
     private void HandleMovement()

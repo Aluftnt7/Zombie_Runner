@@ -453,7 +453,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7572963906846842672
 Transform:
   m_ObjectHideFlags: 0
@@ -619,12 +619,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e558c4985628b1847884d550a7565742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fpsCmaera: {fileID: 0}
-  zoomedOutFieldOfView: 0
-  zoomedFieldOfView: 0
-  zoomOutMouseSensetivity: 2
-  zoomInMouseSensetivity: 1.5
-  smooth: 0
+  fpsCamera: {fileID: 0}
+  zoomOutFactor: 60
+  zoomInFactor: 30
+  zoomSpeed: 30
+  zoomOutSensitivity: 2
+  zoomInSensitivity: 1
+  zoomedOutForwardSpeed: 8
+  zoomedOutBackwardSpeed: 4
+  zoomedOutStrafeSpeed: 4
+  zoomedInForwardSpeed: 4
+  zoomedInBackwardSpeed: 2
+  zoomedInStrafeSpeed: 2
+  zoomedOutTransform: {fileID: 0}
+  zoomedInTransform: {fileID: 0}
   fpsController: {fileID: 0}
 --- !u!1 &7569512940607521964
 GameObject:

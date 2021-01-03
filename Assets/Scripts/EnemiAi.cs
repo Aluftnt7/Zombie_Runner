@@ -13,15 +13,12 @@ public class EnemiAi : MonoBehaviour
     NavMeshAgent navMeshAgent;
     float distanceToTarget = Mathf.Infinity;
     bool isProvoked = false;
-    Animator animator;
+    [SerializeField] Animator animator;
 
 
     void Start()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
-        animator = GetComponent<Animator>();
-
-
     }
 
     void Update()
@@ -29,12 +26,15 @@ public class EnemiAi : MonoBehaviour
         distanceToTarget = Vector3.Distance(target.position, transform.position);
         if (isProvoked)
         {
-            EngageTarget();
+            animator.SetTrigger("screem");
+            FaceTarget();
+            Invoke("EngageTarget", 3f);
         }
         else if(distanceToTarget <= chaseRange)
         {
             isProvoked = true;
         }
+   
     }
 
     public void OnDamageTaken()
@@ -44,10 +44,9 @@ public class EnemiAi : MonoBehaviour
 
     private void EngageTarget()
     {
-        FaceTarget();
+        print("chaseee");
         if (distanceToTarget >= navMeshAgent.stoppingDistance)
         {
-
             ChaseTarget();
         }
 
